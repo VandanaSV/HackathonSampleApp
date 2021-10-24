@@ -46,16 +46,7 @@
     		<scope>test</scope>
 		</dependency>
 		
-		<dependency>
-  			<groupId>org.jacoco</groupId>
-  			<artifactId>org.jacoco.agent</artifactId>
-  			<version>0.8.6</version>
-		</dependency>
-		<dependency>
-    		<groupId>org.jacoco</groupId>
-    		<artifactId>org.jacoco.cli</artifactId>
-    		<version>0.8.6</version>
-			</dependency>
+
 		
 	</dependencies>
 
@@ -103,55 +94,7 @@
 					</execution>
 				</executions>
 	   		</plugin>
-			<plugin>
-				<groupId>org.jacoco</groupId>
-				<artifactId>jacoco-maven-plugin</artifactId>
-				<version>0.8.6</version>
-				<executions>
-				<execution>
-				<id>jacoco-initialize</id>
-				<goals>
-				<goal>prepare-agent</goal>
-				</goals>
-				</execution>
-				<execution>
-				<id>report</id>
-				<phase>prepare-package</phase>
-				<goals>
-				<goal>report</goal>
-				</goals>
-				</execution>
-				<execution>
-					<id>unit-tests</id>
-					<phase>test</phase>
-					<goals>
-					<goal>report</goal>
-					</goals>
-					<configuration>
-						<dataFile>target/jacoco.exec</dataFile>
-						<outputDirectory>target/my-reports</outputDirectory>
-					</configuration>
-				</execution>
-				<execution>
-					<id>dump</id>
-  					<phase>post-integration-test</phase>
-  					<goals>
-  					<goal>dump</goal>
-  					</goals>
-  					<configuration>
-  						<address>localhost</address>
-  						<destFile>${project.build.directory}/jacoco-it.exec</destFile>
-  						<port>36320</port>
-  						<reset>false</reset>
-  						<append>false</append>
-  					</configuration>
-				</execution>			
-				</executions>
-				<configuration>
-					<destFile>target/jacoco.exec</destFile>
-					<propertyName>surefireArgLine</propertyName>
-				</configuration>
-				</plugin>
+
 
 		</plugins>
 	</build>
